@@ -150,6 +150,7 @@ linters.setup {
 lvim.plugins = {
   { "folke/tokyonight.nvim" },
   { "ellisonleao/gruvbox.nvim" },
+  { "jeffkreeftmeijer/vim-numbertoggle" },
   -- {
   --   "folke/trouble.nvim",
   --   cmd = "TroubleToggle",
