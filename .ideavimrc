@@ -1,0 +1,13 @@
+set number relativenumber
+set idearefactormode=keep
+set ideajoin
+set surround
+set easymotion
+
+let mapleader = " "
+nmap <leader>e :NERDTreeToggle<CR>
+" actions
+
+set NERDTree
+let g:NERDTreeMapActivateNode='l'
+let g:NERDTreeMapJumpParent='h'
