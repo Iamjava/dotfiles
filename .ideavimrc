@@ -3,11 +3,14 @@ set idearefactormode=keep
 set ideajoin
 set surround
 set easymotion
-
+" source ~/.ideavimrc to reload
 let mapleader = " "
 nmap <leader>e :NERDTreeToggle<CR>
+map J gT
+map K gt
 " actions
-
+command "action NewFile" e
 set NERDTree
 let g:NERDTreeMapActivateNode='l'
 let g:NERDTreeMapJumpParent='h'
+
