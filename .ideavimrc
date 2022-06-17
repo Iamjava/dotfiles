@@ -6,6 +6,8 @@ set easymotion
 " source ~/.ideavimrc to reload
 let mapleader = " "
 nmap <leader>e :NERDTreeToggle<CR>
+nmap <C-w> :action CloseEditor<CR>
+nmap <leader>c :action CloseEditor<CR>
 map J gT
 map K gt
 " actions
