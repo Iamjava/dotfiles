@@ -20,6 +20,8 @@ lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["gt"] = ":bprevious<cr>"
 lvim.keys.normal_mode["gT"] = ":bNext<cr>"
+lvim.keys.normal_mode["J"] = ":bprevious<cr>"
+lvim.keys.normal_mode["K"] = ":bNext<cr>"
 -- lvim.keys.normal_mode["mS"] = ":mks ~/mysession.vim<cr>"
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
