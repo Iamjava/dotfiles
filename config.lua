@@ -8,26 +8,34 @@ an executable
 ]]
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 -- KEY
--- general
+-- Folding of functions
+vim.opt.foldmethod = "expr" -- folding set to "expr" for treesitter based folding
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
+lvim.foldmethod = "indent"
+-- Indent lines
+
+vim.opt.list = true
+vim.opt.listchars:append("eol: ")
+require("indent_blankline").setup {
+  show_end_of_line = false,
+}
+-- keymaps
 lvim.log.level = "warn"
 lvim.format_on_save = true
 lvim.colorscheme = "gruvbox"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
+
 -- keymappings [view all the defaults by pressing <leader>Lk]
-lvim.leader = "space"
--- add your own keymapping
+lvim.leader                 = "space"
 lvim.keys.normal_mode["gt"] = ":bprevious<cr>"
 lvim.keys.normal_mode["gT"] = ":bNext<cr>"
-lvim.keys.normal_mode["J"] = ":bprevious<cr>"
-lvim.keys.normal_mode["K"] = ":bNext<cr>"
 -- lvim.keys.normal_mode["mS"] = ":mks ~/mysession.vim<cr>"
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
--- lvim.keys.normal_mode["<C-q>"] = ":q<cr>" -- or vim.keymap.set("n", "<C-q>", ":q<cr>" )
-
+-- lvim.keys.normal_mode["<C-q>"] = ":q<cr>" --
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
 -- local _, actions = pcall(require, "telescope.actions")
@@ -119,15 +127,15 @@ local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   { command = "black", filetypes = { "python" } },
   --   { command = "isort", filetypes = { "python" } },
-  --   {
-  --     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
-  --     command = "prettier",
-  --     ---@usage arguments to pass to the formatter
-  --     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
-  --     extra_args = { "--print-with", "100" },
-  --     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-  --     filetypes = { "typescript", "typescriptreact" },
-  -- },
+  {
+    --     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
+    command = "prettier",
+    --     ---@usage arguments to pass to the formatter
+    --     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
+    extra_args = { "--print-with", "100" },
+    --     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+    filetypes = { "typescript", "typescriptreact" },
+  },
 }
 
 -- -- set additional linters
@@ -141,11 +149,11 @@ linters.setup {
   --     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
   --     extra_args = { "--severity", "warning" },
   --   },
-  --   {
-  --     command = "codespell",
-  --     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-  --     filetypes = { "javascript", "python" },
-  --   },
+  {
+    command = "codespell",
+    ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+    filetypes = { "javascript", "python" },
+  },
 }
 
 -- Additional Plugins
@@ -153,6 +161,7 @@ lvim.plugins = {
   { "folke/tokyonight.nvim" },
   { "ellisonleao/gruvbox.nvim" },
   { "jeffkreeftmeijer/vim-numbertoggle" },
+  { "lukas-reineke/indent-blankline.nvim" },
   -- {
   --   "folke/trouble.nvim",
   --   cmd = "TroubleToggle",
