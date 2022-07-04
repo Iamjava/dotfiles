@@ -1,4 +1,5 @@
-# A Document with usefull stuff around vim and other dotfiles
+## See https://github.com/Iamjava/configfiles for current configs
+### A Document with usefull stuff around vim and other dotfiles
 
 ```
 Commands for folding
